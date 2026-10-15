@@ -58,4 +58,21 @@ public class RobotTest{
     }
 
 
+
+
+    //dans la classe grille il faut une methode pour check les limites de la grille
+    @Test
+    public void testEnDehorsGrille() {
+    Grille grilleTestLimite = new Grille(3, 3);
+
+    Case caseLimite = new Case(0, 1);
+    Robot robotTestLimite = new Robot("transformers", grilleTestLimite, caseLimite);
+
+    robotTestLimite.seDeplacer(Directions.HAUT);
+
+    //test: le robot ne doit pas bouger
+    assertEquals(caseLimite, robotTestLimite.getPosition(), "le robot ne peut pas sortir de la grille");
+}
+
+
 }
