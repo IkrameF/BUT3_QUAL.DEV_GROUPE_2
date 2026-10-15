@@ -1,8 +1,8 @@
 package model;
 
 public class Case {
-    protected int x;
-    protected int y;
+    private int x;
+    private int y;
 
     public Case(int x, int y) {
         this.x = x;

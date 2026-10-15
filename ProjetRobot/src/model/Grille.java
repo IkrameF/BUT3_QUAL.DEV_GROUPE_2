@@ -1,39 +1,52 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Grille {
-    protected int nb_colonne;
-    protected int nb_ligne;
+    private int nbColonne;
+    private int nbLigne;
+    private List<Case> cases;
 
-    public Grille(){
-        this.nb_colonne = 0;
-        this.nb_ligne = 0;
-    }
-    public Grille(int nb_colonne, int nb_ligne) {
-        this.nb_colonne = nb_colonne;
-        this.nb_ligne = nb_ligne;
+    public Grille(int nbColonne, int nbLigne) {
+        this.nbColonne = nbColonne;
+        this.nbLigne = nbLigne;
+        initGrille();
     }
 
 
-    public int getNb_colonne() {
-        return nb_colonne;
+    public int getNbColonne() {
+        return nbColonne;
     }
 
-    public void setNb_colonne(int nb_colonne) {
-        this.nb_colonne = nb_colonne;
+    public void setNbColonne(int nb_colonne) {
+        this.nbColonne = nb_colonne;
     }
 
-    public int getNb_ligne() {
-        return nb_ligne;
+    public int getNbLigne() {
+        return nbLigne;
     }
 
-    public void setNb_ligne(int nb_ligne) {
-        this.nb_ligne = nb_ligne;
+    public void setNbLigne(int nb_ligne) {
+        this.nbLigne = nb_ligne;
     }
 
-    public void afficher_grille(){
+    private void initGrille(){
+        // Créé la liste vide
+        this.cases = new ArrayList<>();
+        for(int i = 0; i <= this.nbLigne; i++){
+            for(int j = 0; j <= this.nbColonne; j++){
+                // Rempli la liste avec les cases qui composent la grille
+                Case caseij = new Case(i,j);
+                this.cases.add(caseij);
+            }
+        }
+    }
+
+    public void afficherGrille(){
         // Création de la ligne qui séparera chaque ligne
         String ligne_separatrice = "+";
-        for(int k = 1; k <= this.nb_colonne+1; k++){
+        for(int k = 1; k <= this.nbColonne+1; k++){
             ligne_separatrice += "---+";
         }
 
@@ -41,18 +54,18 @@ public class Grille {
         System.out.print(ligne_separatrice);
         System.out.println();
         System.out.print("|   | ");
-        for(int i = 1; i <= this.nb_colonne; i++){
+        for(int i = 1; i <= this.nbColonne; i++){
             System.out.print("\u001B[32m"+ i + "\u001B[0m | "); // Avec la couleur verte pour les indices
         }
         System.out.println();
         System.out.print(ligne_separatrice);
 
         System.out.println();
-        for(int i = 1; i <= this.nb_ligne; i++){
+        for(int i = 1; i <= this.nbLigne; i++){
             // Colonne avec les indices
             System.out.print("| \u001B[32m" + i + "\u001B[0m | ");
             // Remplissage de la grille avec des points
-            for(int j = 1; j <= this.nb_colonne; j++){
+            for(int j = 1; j <= this.nbColonne; j++){
                 System.out.print("." + " | ");
             }
             System.out.println();

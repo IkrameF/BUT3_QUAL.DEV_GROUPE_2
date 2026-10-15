@@ -1,18 +1,19 @@
 import model.Grille;
 
 void main() {
-    Grille grille = new Grille();
 
     Scanner scanner = new Scanner(System.in);
     System.out.print("Veuillez choisir le nombre de colonne : ");
-    grille.setNb_colonne(scanner.nextInt());
+    int nbColonne = scanner.nextInt();
 
     System.out.print("Veuillez choisir le nombre de ligne : ");
-    grille.setNb_ligne(scanner.nextInt());
+    int nbLigne = scanner.nextInt();
     scanner.close();
 
+    Grille grille = new Grille(nbColonne, nbLigne);
+
     System.out.println("Affichage de la grille : ");
-    grille.afficher_grille();
+    grille.afficherGrille();
 
 
 }
