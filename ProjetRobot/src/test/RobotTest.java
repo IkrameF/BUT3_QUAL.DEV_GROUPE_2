@@ -1,5 +1,10 @@
-package model;
+package test;
 
+
+import model.Case;
+import model.Grille;
+import model.Robot;
+import model.Directions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,6 @@
+import model.Case;
 import model.Grille;
+import model.Robot;
 
 void main() {
 
@@ -12,8 +14,10 @@ void main() {
 
     Grille grille = new Grille(nbColonne, nbLigne);
 
+    Robot robot = new Robot("robot", grille, new Case(1,1));
+
     System.out.println("Affichage de la grille : ");
-    grille.afficherGrille();
+    grille.afficherGrille(robot);
 
 
 }
