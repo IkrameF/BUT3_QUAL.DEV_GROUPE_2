@@ -36,29 +36,40 @@ public class Robot {
     }
 
 
-
     public void haut(){
-
+        if (position.getX() > 1) {
+            position.setX(position.getX() - 1);
+        }
     }
 
     public void bas(){
-
+        if (position.getX() < grille.getNbLigne()) {
+            position.setX(position.getX() + 1);
+        }
     }
 
     public void gauche(){
-
+        if (position.getY() > 1) {
+            position.setY(position.getY() - 1);
+        }
     }
 
     public void droite(){
-
+        if (position.getY() < grille.getNbColonne()) {
+            position.setY(position.getY() + 1);
+        }
     }
 
     public void seDeplacer(Directions directions){
         switch(directions){
             case HAUT : haut();
-            case BAS : bas();
+             break;
+            case BAS : bas() ;
+            break;
             case GAUCHE : gauche();
+             break;
             case DROITE : droite();
+             break;
         }
     }
 
