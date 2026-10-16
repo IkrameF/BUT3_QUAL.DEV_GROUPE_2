@@ -43,7 +43,7 @@ public class Grille {
         }
     }
 
-    public void afficherGrille(){
+    public void afficherGrille(Robot robot){
         // Création de la ligne qui séparera chaque ligne
         String ligne_separatrice = "+";
         for(int k = 1; k <= this.nbColonne+1; k++){
@@ -66,7 +66,12 @@ public class Grille {
             System.out.print("| \u001B[32m" + i + "\u001B[0m | ");
             // Remplissage de la grille avec des points
             for(int j = 1; j <= this.nbColonne; j++){
-                System.out.print("." + " | ");
+                Case p = robot.getPosition();
+            if (p.getX() == i && p.getY() == j) {
+                System.out.print("R | ");
+            } else {
+                System.out.print(". | ");
+            }
             }
             System.out.println();
             System.out.print(ligne_separatrice);
