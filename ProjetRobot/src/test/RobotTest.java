@@ -44,7 +44,8 @@ public class RobotTest{
     public void testSeDeplacerBas() {
         robot.seDeplacer(Directions.BAS);
         Case positionAttendue = new Case(2, 1);
-        assertEquals(positionAttendue, robot.getPosition(), "le robot doit descendre d'une case");
+        assertEquals(positionAttendue.getY(), robot.getPosition().getY(), "le robot doit descendre d'une case");
+        assertEquals(positionAttendue.getX(), robot.getPosition().getX(), "le robot doit descendre d'une case");
     }
 
 
