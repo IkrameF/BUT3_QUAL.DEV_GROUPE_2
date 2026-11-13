@@ -74,9 +74,20 @@ public class Robot {
         }
     }
 
-    public void seDeplacer(){
-       if (deplacementStrategy != null){
-           deplacementStrategy.deplacer(this);
+
+    //Strategy permet d'eviter des conditions du type: si on est en deplacement manuel alors (50lignes de logiques pour le deplacement)
+    public void seDeplacer(Directions directions){
+       if (directions != null){
+           switch(directions){
+               case HAUT: haut();
+               break;
+               case BAS: bas();
+               break;
+               case GAUCHE: gauche();
+               break;
+               case DROITE: droite();
+               break;
+           }
        }
     }
 
