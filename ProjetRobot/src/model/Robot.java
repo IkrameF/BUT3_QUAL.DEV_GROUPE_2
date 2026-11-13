@@ -1,14 +1,28 @@
 package model;
 
+import process.Deplacements;
+
 public class Robot {
     private String nom;
     private Grille grille;
     private Case position;
 
-    public Robot(String nom, Grille grille, Case position){
+    //attribut qui permettra de deplacer le robot grace au design pattern strategy
+    private Deplacements deplacementStrategy;
+
+    public Robot(String nom, Grille grille, Case position, Deplacements deplStrat){
         this.setNom(nom);
         this.setGrille(grille);
         this.setPosition(position);
+        this.setDeplacement(deplStrat);
+    }
+
+    public void setDeplacement(Deplacements deplacement){
+        this.deplacementStrategy=deplacement;
+    }
+
+    public Deplacements getDeplacement(){
+        return deplacementStrategy;
     }
 
     public String getNom() {
@@ -60,17 +74,10 @@ public class Robot {
         }
     }
 
-    public void seDeplacer(Directions directions){
-        switch(directions){
-            case HAUT : haut();
-             break;
-            case BAS : bas() ;
-            break;
-            case GAUCHE : gauche();
-             break;
-            case DROITE : droite();
-             break;
-        }
+    public void seDeplacer(){
+       if (deplacementStrategy != null){
+           deplacementStrategy.deplacer(this);
+       }
     }
 
 
